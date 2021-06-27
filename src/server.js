@@ -1,22 +1,12 @@
 import express from "express";
 import cors from "cors";
-import pg from "pg";
 import dayjs from "dayjs";
 import { stripHtml } from "string-strip-html";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
 
-const databaseConfig = {
-  user: "bootcamp_role",
-  password: "senha_super_hiper_ultra_secreta_do_role_do_bootcamp",
-  host: "localhost",
-  port: 5432,
-  database: "mywallet",
-};
 
 const server = express();
-const { Pool } = pg;
-const connection = new Pool(databaseConfig);
 
 server.use(cors());
 server.use(express.json());
@@ -157,6 +147,6 @@ server.get("/transactions", async (req, res) => {
   }
 });
 
-server.listen(4000, () => {
-  console.log("Servidor rodando na porta 4000");
+server.listen(process.env.PORT, () => {
+  console.log("Server running on port " + process.env.PORT);
 });
