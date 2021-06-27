@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 import { stripHtml } from "string-strip-html";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
+import connection from "./database";
 
 
 const server = express();
