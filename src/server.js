@@ -4,8 +4,18 @@ import dayjs from "dayjs";
 import { stripHtml } from "string-strip-html";
 import bcrypt from "bcrypt";
 import { v4 as uuidv4 } from "uuid";
-import connection from "src/database";
+import pg from 'pg';
 
+const { Pool } = pg;
+
+const databaseConfig = {
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+        rejectUnauthorized: false
+    }
+}
+
+const connection = new Pool(databaseConfig);
 
 const server = express();
 
