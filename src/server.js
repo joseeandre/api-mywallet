@@ -161,3 +161,5 @@ server.get("/transactions", async (req, res) => {
 server.listen(process.env.PORT, () => {
   console.log("Server running on port " + process.env.PORT);
 });
+
+export { server, connection };
