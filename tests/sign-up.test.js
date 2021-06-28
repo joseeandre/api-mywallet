@@ -1,7 +1,7 @@
 import supertest from 'supertest';
 import pg from 'pg';
-import server from '../src/server';
-import connection from '../src/database/database';
+import server from '../src/server.js';
+import connection from '../src/database/database.js';
 
 const { Pool } = pg;
 
